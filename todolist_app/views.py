@@ -19,11 +19,11 @@ def todolist(request):
             instance = form.save(commit=False)
             instance.owner = request.user
             instance.save()
-        messages.success(request,("New Task Added!"))
+        messages.success(request,("Kegitan baru ditambahkan!"))
         return redirect('todolist')
     else:
         #all_task = TaskList.objects.all() --jik menampilkan semua data siapa aja
-        all_task = TaskList.objects.filter(owner=request.user)
+        all_task = TaskList.objects.filter(owner=request.user).order_by('id').reverse()
         page = request.GET.get('page', 1)
         paginator = Paginator(all_task, 10)
         try:
@@ -41,7 +41,7 @@ def delete_task(request, task_id):
     if task.owner == request.user:
         task.delete()
     else:
-        messages.error(request, ("Access Resticted, You are not allowed"))
+        messages.error(request, ("Akses dilarang, Anda tidak diperbolehkan"))
 
     return redirect('todolist')
     
@@ -53,7 +53,7 @@ def edit_task(request, task_id):
         if form.is_valid():
             form.save()
 
-        messages.success(request,("Task Edited!"))
+        messages.success(request,("Kegiatan berhasil di edit!"))
         return redirect('todolist')
     else:
         task_obj = TaskList.objects.get(pk=task_id)
@@ -67,7 +67,7 @@ def complete_task(request, task_id):
         task.done = True
         task.save()
     else:
-        messages.error(request, ("Access Resticted, You are not allowed"))
+        messages.error(request, ("Akses dilarang, Anda tidak diperbolehkan"))
     
     return redirect('todolist')
 
@@ -78,19 +78,19 @@ def pending_task(request, task_id):
         task.done = False
         task.save()
     else:
-        messages.error(request, ("Access Resticted, You are not allowed"))
+        messages.error(request, ("Akses dilarang, Anda tidak diperbolehkan"))
         
     return redirect('todolist')
 
 def contact(request):
     context ={
-        'contact_text' : "Welcome to Contact Page",
+        'contact_text' : "Selamat di halaman kontak",
     }
     return render(request, 'contact.html', context)
 
 def about(request):
     context ={
-        'about_text' : "Welcome to About Page",
+        'about_text' : "Selamat datang di halaman tentang Kami",
     }
     return render(request, 'about.html', context)
 

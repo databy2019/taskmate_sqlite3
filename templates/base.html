@@ -23,13 +23,13 @@
             <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'todolist' %}">Todolist</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+            <a class="nav-link" href="{% url 'todolist' %}">Agenda</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'about' %}">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
           </li>
         </ul>
         
@@ -37,7 +37,7 @@
       
       {%if user.is_authenticated%}
         <div class="form-inline my-2 my-lg-0">
-          <div class="p-2 mb-0 bg-dark text-white">Logged in as <b>{{ user.username }}</b></div>
+          <div class="p-2 mb-0 bg-dark text-white">Logged in sebagai <b>{{ user.username }}</b></div>
           <a href="{% url 'logout' %}"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button></a>
         </div>
       {% else %}

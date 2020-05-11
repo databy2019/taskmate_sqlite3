@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-  <title>Edit Task - Taskmate</title>
+  <title>Edit Kegiatan</title>
 {% endblock title %}
 
 {% block content %}
@@ -13,10 +13,10 @@
           <label class="col-lg-4"></label>
           <input type="text" class="form-control col-lg-6" name="task" placeholder="{{ task_obj.task }}" value="{{ task_obj.task }}">
           <input type="hidden" name="done" value="{{ task_obj.done }}">
-          <button type="submit" class="btn btn-primary col-lg-2">Update Task</button>
+          <button type="submit" class="btn btn-primary col-lg-2">Update Kegiatan</button>
       </form>
     {% else %}
-      <div  class="p-2 mb-0 bg-light text-dark"><b>Access Resticted, You are not allowed</b></div>
+      <div  class="p-2 mb-0 bg-light text-dark"><b>Akses dilarang, Anda tidak diperbolekan mengakses</b></div>
     {% endif %}
   </div>
 {% endblock content %}
