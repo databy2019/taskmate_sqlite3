@@ -10,8 +10,8 @@ def register(request):
         register_form = CustomRegisterForm(request.POST)
         if register_form.is_valid():
             register_form.save()
-            messages.success(request, ("New User Account Created, Login to get started!"))
-            return redirect('register')
+            messages.success(request, ("User sudah dibuat, Silahkan login!"))
+            return redirect('login')
     else:
 
         #register_form = UserCreationForm()
