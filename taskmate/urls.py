@@ -5,7 +5,7 @@ from todolist_app import views as todolist_views
 from users_app import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('minda/', admin.site.urls),
 
     path('', todolist_views.index, name='index'),
     path('todolist/', include('todolist_app.urls')),
