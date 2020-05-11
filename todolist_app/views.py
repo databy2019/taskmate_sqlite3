@@ -84,13 +84,13 @@ def pending_task(request, task_id):
 
 def contact(request):
     context ={
-        'contact_text' : "Selamat di halaman kontak",
+        'contact_text' : "Selamat datang di halaman kontak",
     }
     return render(request, 'contact.html', context)
 
 def about(request):
     context ={
-        'about_text' : "Selamat datang di halaman tentang Kami",
+        'about_text' : "Merupakan aplikasi yang bisa anda gunakan untuk merencanakan dan memonitor kegiatan harian. Sangat membantu untuk perencanaan yang baik bagi kehidupan Anda. Silahkan menggunakan",
     }
     return render(request, 'about.html', context)
 
